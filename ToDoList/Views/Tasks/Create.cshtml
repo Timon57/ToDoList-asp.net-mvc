@@ -1,0 +1,16 @@
+﻿@model Tasks
+ <div class="container">
+    <form class="form-control pt-0 w-50 mx-auto bg-info" method="post">  
+            <div class="row text-center">
+                <h2 style="background:lightgreen;">Add New Task</h2>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TaskName"></label>
+                <input asp-for="TaskName" class="form-control rounded"/>
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description"class="form-control rounded"></textarea>
+                <div class="text-center mt-2"><button type="submit" class="btn btn-success w-100">Add</button></div>
+            </div>
+    </form>
+</div>
+

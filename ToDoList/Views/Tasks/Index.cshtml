@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Tasks> 
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container bg-info w-50 rounded">
+    <div class="row text-center" ><h1 style="background:lightgreen;">Task List</h1></div>
+    <div class="row text-center justify-content-center">
+        <div class="col text-center justify-content-center">
+            @foreach (var obj in Model.Reverse().ToList())
+            {
+                <div>
+                    @if (obj.Completed == true)
+                    {
+                            <p class="bg-light mx-auto rounded d-inline-block p-2" ><s style="text-decoration-thickness: 0.2em;"><a asp-controller="Tasks" asp-action="View" asp-route-id="@obj.Id">@obj.TaskName &nbsp;</a></s>
+                            <a asp-controller="Tasks" asp-action="Completed" asp-route-id="@obj.Id"><i class="bi bi-check-circle-fill"></i></a>
+                            <a asp-controller="Tasks" asp-action="Delete" asp-route-id="@obj.Id"><i class="bi bi-trash-fill"></i></a>       
+                        </p>
+                    }
+                    else{
+                            <p class="bg-light mx-auto rounded d-inline-block p-2" > <a asp-controller="Tasks" asp-action="View" asp-route-id="@obj.Id">@obj.TaskName &nbsp;</a>
+                            <a asp-controller="Tasks" asp-action="Completed" asp-route-id="@obj.Id"><i class="bi bi-check-circle-fill"></i></a>
+                            <a asp-controller="Tasks" asp-action="Delete" asp-route-id="@obj.Id"><i class="bi bi-trash-fill"></i></a>       
+                        </p>
+
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    
+    <div class="text-center"><a class="btn btn-secondary rounded mb-2" asp-controller="Tasks" asp-action="Create">Add New Task</a></div>
+    
+</div>
+
+@*<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr class="text-center" colspan="2">
+            <th>Tasks List</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.TaskName 
+                </td>
+                    <td width="50%">
+                    @obj.Completed 
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+
+
+
